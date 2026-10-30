@@ -1,0 +1,19 @@
+Phần 1: Phân tích hậu quả của "Thảm họa dữ liệu truyền thống" (Phần lý thuyết nộp kèm README)
+Xung đột phiên bản và mất kiểm soát mã nguồn: Việc đặt tên file thủ công như code_v1.py hay code_final.py qua Zalo khiến các thành viên trong nhóm không biết đâu là bản cập nhật mới nhất, dễ dẫn đến việc ghi đè code của nhau.
+
+Rủi ro mất dữ liệu vĩnh viễn (Single Point of Failure): Khi file chỉ nằm cục bộ trên máy cá nhân (D:\Project\...), nếu máy tính bị hỏng, mất cắp, hoặc lỡ tay lưu đè (Ctrl+S) như trường hợp của Nam thì toàn bộ công sức sẽ biến mất hoàn toàn không có khả năng khôi phục.
+
+Thiếu khả năng truy vết lịch sử (Lack of Audit Trail): Không thể biết ai đã thay đổi đoạn code nào, thay đổi vào lúc nào, và tại sao lại xảy ra lỗi, gây khó khăn cực lớn trong việc teamwork và Debug hệ thống.
+
+Phần 2: Đề xuất quy trình thiết lập Hybrid Workflow (Giải pháp 1-click Version History)
+Để Nam và đội ngũ "Smart Food" không bao giờ gặp lại tình trạng này, quy trình làm việc chuẩn được khuyến nghị chuyển dịch sang môi trường đám mây kết hợp:
+
+Sử dụng Git & GitHub làm trục chính: Đưa toàn bộ mã nguồn lên kho chứa GitHub công khai hoặc riêng tư. Mỗi khi thay đổi code, sử dụng lệnh git commit và git push để lưu lại lịch sử thay đổi rõ ràng.
+
+Tận dụng Version History trên Cloud Workspace (Google Drive / GitHub):
+
+Nếu làm việc trực tiếp trên nền tảng đám mây, tính năng Version History cho phép xem lại toàn bộ các phiên bản trước đó theo từng phút.
+
+Chỉ cần nhấp vào mốc thời gian trước khi xảy ra lỗi và bấm Restore để khôi phục trạng thái code ngay lập tức chỉ trong 1-click.
+
+Quy tắc phân nhánh (Branching Strategy): Mỗi thành viên tạo một nhánh (Branch) riêng khi phát triển tính năng mới, sau đó tạo Pull Request để kiểm tra code trước khi gộp vào nhánh chính (main), triệt tiêu hoàn toàn rủi ro lưu đè nhầm file.

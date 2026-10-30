@@ -30,14 +30,3 @@ Project_GreenTech_JS/
 ├── .gitignore               # Tệp quy định các thư mục bị loại trừ khỏi Git/Cloud Sync (đặc biệt là node_modules/)
 ├── package.json             # File quản lý các gói thư viện phụ thuộc của Node.js
 └── README.md                # Tài liệu tổng quan dự án
-
-```
-
----
-
-## 3. Giải pháp kỹ thuật xử lý Bẫy dữ liệu (`node_modules`)
-
-* **Vấn đề:** Thư mục `node_modules` chứa hàng chục nghìn file phụ thuộc rất nhỏ, khiến ứng dụng đồng bộ đám mây bị đơ (`freeze`), ngốn băng thông và làm cạn kiệt dung lượng Cloud miễn phí.
-* **Cách khắc phục triệt để:**
-1. Thêm ngay dòng `node_modules/` vào trong file `.gitignore` và thiết lập quy tắc ngoại trừ (Exclude) tương ứng trên phần mềm Cloud Sync.
-2. Khi chuyển sang máy tính mới hoặc đồng bộ cho thành viên khác trong nhóm, chỉ cần đồng bộ file `package.json` và chạy lệnh `npm install` tại local để hệ thống tự động tải lại các thư viện cần thiết thay vì đồng bộ sẵn hàng vạn file rác lên mây.
